@@ -13,7 +13,7 @@ class FormValidator extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,10 +24,10 @@ class FormValidator extends FormRequest
     public function rules()
     {
         return [
-            'number' => '',
-            'course' => '',
-            'name'  => '',
-            'date'  => ''
+            'number' => 'required|integer|min:3|max:10',
+            'course' => 'required|string|min:3|max:10',
+            'name'  => 'required|string|min:3|max:50',
+            'date'  => 'required|date'
         ];
     }
 }

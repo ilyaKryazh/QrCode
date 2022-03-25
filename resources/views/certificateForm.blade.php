@@ -2,7 +2,8 @@
 @section('content')
 <div class="container-fluid col-4">
     <div class="row justify-content-center">
-        <form action="" method="post">
+        <form action="store" method="post">
+            @csrf
             <div class="mb-3">
                 <label for="formGroupExampleInput1" class="form-label">Номер Сетификата</label>
                 <input type="text" class="form-control" name="number" id="formGroupExampleInput1" placeholder="Номер Сетификата">
