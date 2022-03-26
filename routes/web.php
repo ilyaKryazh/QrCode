@@ -18,3 +18,4 @@ Route::get('/', function () {
     return view('certificateForm');
 });
 Route::post('store', [CertificateController::class, 'store']);
+Route::get('share', [CertificateController::class, 'getQrCode'])->name('QrCode');

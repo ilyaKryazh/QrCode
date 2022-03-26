@@ -3,21 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FormValidator;
-use Illuminate\Http\Request;
-
+use App\Libraries\PdfDownloadService;
+use QrCode;
 class CertificateController extends Controller
 {
 
     public function store(FormValidator $request)
     {
         $validated = $request->validated();
-        if ($validated->fails()) {
-            return back()->withErrors($validated->errors());
-        }
+        $certificate_id = PdfDownloadService::store($validated);
+
+        return redirect()->route('QrCode')->with(['certificate_id' => $certificate_id]);
     }
 
-    public function download()
+    public function getQrCode()
     {
-        # code...
+
+        return view('qrCode');
     }
 }

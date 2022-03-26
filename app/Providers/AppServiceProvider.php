@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Services\PdfDownloadService;
 
 class AppServiceProvider extends ServiceProvider
 {
